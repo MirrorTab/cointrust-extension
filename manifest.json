@@ -1,0 +1,60 @@
+{
+  "manifest_version": 3,
+  "name": "Cointrust Bot",
+  "version": "1.5",
+  "permissions": [
+    "scripting",
+    "activeTab",
+    "notifications"
+  ],
+  "action": {
+    "default_title": "Click to show an alert"
+  },
+  "host_permissions": [
+    "https://web.sandbox.cointrust.ai/*",
+    "http://web.sandbox.cointrust.ai/*",
+    "https://cointrust.ai/*",
+    "http://cointrust.ai/*",
+    "https://sandbox.env.mirrortab.com/*",
+    "http://sandbox.env.mirrortab.com/*",
+    "https://mt.cointrust.ai/*",
+    "http://mt.cointrust.ai/*"
+  ],
+  "content_scripts": [
+    {
+      "matches": [
+        "https://web.sandbox.cointrust.ai/*",
+        "http://web.sandbox.cointrust.ai/*",
+        "https://cointrust.ai/*",
+        "http://cointrust.ai/*",
+        "https://sandbox.env.mirrortab.com/*",
+        "http://sandbox.env.mirrortab.com/*",
+        "https://mt.cointrust.ai/*",
+        "http://mt.cointrust.ai/*"
+      ],
+      "js": ["inject.js"],
+      "run_at": "document_start"
+    }
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "icons": {
+    "128": "coinbase_120.png"
+  },
+  "web_accessible_resources": [
+    {
+      "resources": ["inject.js"],
+      "matches": [
+        "https://web.sandbox.cointrust.ai/*",
+        "http://web.sandbox.cointrust.ai/*",
+        "https://cointrust.ai/*",
+        "http://cointrust.ai/*",
+        "https://sandbox.env.mirrortab.com/*",
+        "http://sandbox.env.mirrortab.com/*",
+        "https://mt.cointrust.ai/*",
+        "http://mt.cointrust.ai/*"
+      ]
+    }
+  ]
+}
